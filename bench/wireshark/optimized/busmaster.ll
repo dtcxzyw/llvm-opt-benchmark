@@ -381,14 +381,14 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %19, %5, %busmaster_
   store i32 -13, ptr %3, align 4
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
   store ptr %22, ptr %4, align 8
-  br label %37
+  br label %39
 
 23:                                               ; preds = %busmaster_find_priv_entry.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @file_seek(ptr noundef %25, i64 noundef %1, i32 noundef 0, ptr noundef %3)
   %27 = icmp eq i64 %26, -1
-  br i1 %27, label %37, label %28
+  br i1 %27, label %39, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -400,19 +400,19 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %19, %5, %busmaster_
     i32 5, label %34
   ]
 
-32:                                               ; preds = %28
-  store i32 -13, ptr %3, align 4
-  %33 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4)
-  store ptr %33, ptr %4, align 8
-  br label %37
-
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %36 = call fastcc zeroext i1 @busmaster_gen_packet(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %35, ptr noundef %3, ptr noundef %4)
-  br label %37
+  store i32 -13, ptr %3, align 4
+  %35 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4)
+  store ptr %35, ptr %4, align 8
+  br label %39
 
-37:                                               ; preds = %28, %23, %34, %32, %busmaster_find_priv_entry.exit.thread
-  %.0 = phi i1 [ false, %32 ], [ %36, %34 ], [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %28 ]
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %38 = call fastcc zeroext i1 @busmaster_gen_packet(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %37, ptr noundef %3, ptr noundef %4)
+  br label %39
+
+39:                                               ; preds = %28, %23, %36, %34, %busmaster_find_priv_entry.exit.thread
+  %.0 = phi i1 [ false, %32 ], [ %38, %34 ], [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
