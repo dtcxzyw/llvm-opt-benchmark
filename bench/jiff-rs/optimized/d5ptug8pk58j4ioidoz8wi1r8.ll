@@ -5327,8 +5327,8 @@ _ZN4jiff5civil8datetime8DateTime20checked_add_duration17hf7c5263b89f7cd41E.exit.
   %687 = mul i128 %686, %685
   %.decomposed = sub i128 %.frozen, %687
   %688 = icmp slt i128 %.decomposed, 0
-  %extract.t58.i.i.i.i.i.i = trunc i128 %686 to i32
-  %extract.t62.i.i.i.i.i.i = trunc i128 %686 to i64
+  %extract.t60.i.i.i.i.i.i = trunc i128 %686 to i32
+  %extract.t64.i.i.i.i.i.i = trunc i128 %686 to i64
   br i1 %688, label %689, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i.i.i.i.i"
 
 689:                                              ; preds = %684
@@ -5337,14 +5337,14 @@ _ZN4jiff5civil8datetime8DateTime20checked_add_duration17hf7c5263b89f7cd41E.exit.
 
 691:                                              ; preds = %689
   %692 = add i128 %686, 1
-  %extract.t60.i.i.i.i.i.i = trunc i128 %692 to i32
-  %extract.t64.i.i.i.i.i.i = trunc i128 %692 to i64
+  %extract.t59.i.i.i.i.i.i = trunc i128 %692 to i32
+  %extract.t63.i.i.i.i.i.i = trunc i128 %692 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i.i.i.i.i"
 
 693:                                              ; preds = %689
   %694 = add i128 %686, -1
-  %extract.t59.i.i.i.i.i.i = trunc i128 %694 to i32
-  %extract.t63.i.i.i.i.i.i = trunc i128 %694 to i64
+  %extract.t58.i.i.i.i.i.i = trunc i128 %694 to i32
+  %extract.t62.i.i.i.i.i.i = trunc i128 %694 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i.i.i.i.i"
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit.i.i.i.i.i.i": ; preds = %693, %691, %684

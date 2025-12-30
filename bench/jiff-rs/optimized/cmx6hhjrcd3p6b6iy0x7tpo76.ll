@@ -2223,8 +2223,8 @@ define void @_ZN4jiff5civil4time4Time32overflowing_add_duration_general17h77ea31
   %28 = mul i128 %27, %26
   %.decomposed = sub i128 %.frozen, %28
   %29 = icmp slt i128 %.decomposed, 0
-  %extract.t66 = trunc i128 %27 to i32
-  %extract.t70 = trunc i128 %27 to i64
+  %extract.t68 = trunc i128 %27 to i32
+  %extract.t72 = trunc i128 %27 to i64
   br i1 %29, label %30, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 30:                                               ; preds = %25
@@ -2233,14 +2233,14 @@ define void @_ZN4jiff5civil4time4Time32overflowing_add_duration_general17h77ea31
 
 32:                                               ; preds = %30
   %33 = add nsw i128 %27, 1
-  %extract.t68 = trunc i128 %33 to i32
-  %extract.t72 = trunc i128 %33 to i64
+  %extract.t67 = trunc i128 %33 to i32
+  %extract.t71 = trunc i128 %33 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 34:                                               ; preds = %30
   %35 = add nsw i128 %27, -1
-  %extract.t67 = trunc i128 %35 to i32
-  %extract.t71 = trunc i128 %35 to i64
+  %extract.t66 = trunc i128 %35 to i32
+  %extract.t70 = trunc i128 %35 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit": ; preds = %34, %32, %25

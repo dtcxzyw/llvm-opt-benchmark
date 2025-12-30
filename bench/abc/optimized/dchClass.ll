@@ -478,19 +478,19 @@ define void @Dch_ClassesPrepare(ptr noundef captures(none) %0, i32 noundef %1, i
   %.val123.val = load i32, ptr %6, align 4, !tbaa !24
   %7 = sdiv i32 %.val123.val, 4
   %8 = add nsw i32 %7, -1
-  br label %.critedge.i
+  br label %.loopexit.i
 
-.critedge.i:                                      ; preds = %.critedge.i.backedge, %3
+.loopexit.i:                                      ; preds = %.loopexit.i.backedge, %3
   %.012.i = phi i32 [ %8, %3 ], [ %9, %.critedge.i.backedge ]
   %9 = add i32 %.012.i, 1
   %10 = and i32 %.012.i, 1
   %.not.not.i = icmp eq i32 %10, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.critedge.i.backedge
+  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
 
-.critedge.i.backedge:                             ; preds = %.lr.ph.i, %.critedge.i
-  br label %.critedge.i
+.loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
+  br label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.critedge.i
+.preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %9, 9
   br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
@@ -504,7 +504,7 @@ define void @Dch_ClassesPrepare(ptr noundef captures(none) %0, i32 noundef %1, i
   %.01116.i = phi i32 [ %12, %11 ], [ 3, %.preheader.i ]
   %14 = urem i32 %9, %.01116.i
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.critedge.i.backedge, label %11
+  br i1 %15, label %.loopexit.i.backedge, label %11
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %16 = sext i32 %9 to i64

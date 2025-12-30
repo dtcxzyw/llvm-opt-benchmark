@@ -3049,8 +3049,8 @@ define range(i32 -1, 1) i32 @H5P__register(ptr noundef captures(none) %0, ptr no
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %87
 
-80:                                               ; preds = %75
-  %81 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
+86:                                               ; preds = %75
+  %87 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %82 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %83 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P__add_prop, i32 noundef 1386, i64 noundef %81, i64 noundef %82, ptr noundef nonnull @.str.32) #14
   %84 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -3067,29 +3067,29 @@ define range(i32 -1, 1) i32 @H5P__register(ptr noundef captures(none) %0, ptr no
   br i1 %.not62, label %.thread70, label %60, !llvm.loop !93
 
 .thread70:                                        ; preds = %87, %54, %51
-  %91 = tail call i32 @H5P__register_real(ptr noundef nonnull %45, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %96, label %95
+  %90 = tail call i32 @H5P__register_real(ptr noundef nonnull %45, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %96, label %98
 
 .thread73:                                        ; preds = %24
-  %93 = tail call i32 @H5P__register_real(ptr noundef nonnull %14, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %96, label %H5P__close_class.exit
+  %92 = tail call i32 @H5P__register_real(ptr noundef nonnull %14, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %93 = icmp slt i32 %92, 0
+  br i1 %93, label %96, label %H5P__close_class.exit
 
-95:                                               ; preds = %.thread70
+98:                                               ; preds = %.thread70
   store ptr %45, ptr %0, align 8, !tbaa !22
   br label %H5P__close_class.exit
 
-96:                                               ; preds = %.thread70, %.thread73
-  %.05479 = phi ptr [ null, %.thread73 ], [ %45, %.thread70 ]
+99:                                               ; preds = %.thread70, %.thread73
+  %.155 = phi ptr [ null, %.thread73 ], [ %45, %.thread70 ]
   %97 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %98 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !10
   %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P__register, i32 noundef 2539, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.43) #14
   %.not91 = icmp eq ptr %.05479, null
   br i1 %.not91, label %H5P__close_class.exit, label %.thread
 
-.thread:                                          ; preds = %64, %80, %96
-  %.15599 = phi ptr [ %.05479, %96 ], [ %45, %80 ], [ %45, %64 ]
+.thread:; preds = %64, %80, %96
+  %.15599 = phi ptr [ %.155, %96 ], [ %45, %80 ], [ %45, %64 ]
   %100 = load i8, ptr @H5P_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %101 = trunc nuw i8 %100 to i1
   %102 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -3098,11 +3098,11 @@ define range(i32 -1, 1) i32 @H5P__register(ptr noundef captures(none) %0, ptr no
   %105 = select i1 %101, i1 true, i1 %104
   br i1 %105, label %106, label %H5P__close_class.exit, !prof !9
 
-106:                                              ; preds = %.thread
-  %107 = tail call i32 @H5P__access_class(ptr noundef nonnull %.15599, i32 noundef 5)
+107:                                              ; preds = %.thread
+  %108 = tail call i32 @H5P__access_class(ptr noundef nonnull %.15599, i32 noundef 5)
   br label %H5P__close_class.exit
 
-H5P__close_class.exit:                            ; preds = %.thread73, %47, %95, %106, %.thread, %13, %96
+H5P__close_class.exit:                            ; preds = %.thread73, %47, %98, %107, %.thread, %13, %99
   %.052 = phi i32 [ 0, %13 ], [ -1, %106 ], [ -1, %96 ], [ -1, %.thread ], [ -1, %47 ], [ 0, %95 ], [ 0, %.thread73 ]
   ret i32 %.052
 }

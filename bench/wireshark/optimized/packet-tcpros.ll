@@ -309,27 +309,27 @@ is_rosclock.exit.i:                               ; preds = %20
   br label %70
 
 is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i, %20
-  %44 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05259.i)
-  %45 = icmp slt i32 %44, 20
-  br i1 %45, label %is_rosmsg.exit.thread.i, label %46
+  %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05259.i)
+  %46 = icmp slt i32 %45, 20
+  br i1 %46, label %is_rosmsg.exit.thread.i, label %47
 
-46:                                               ; preds = %is_rosclock.exit.thread.i
-  %47 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
-  %48 = icmp ult i32 %47, 16
-  br i1 %48, label %is_rosmsg.exit.thread.i, label %49
+47:                                               ; preds = %is_rosclock.exit.thread.i
+  %48 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
+  %49 = icmp ult i32 %48, 16
+  br i1 %49, label %is_rosmsg.exit.thread.i, label %50
 
-49:                                               ; preds = %46
-  %50 = add i32 %.05259.i, 16
-  %51 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %50)
-  %52 = add i32 %47, -16
-  %53 = icmp ule i32 %51, %52
-  %54 = add nuw i32 %51, 4
-  %55 = icmp uge i32 %44, %54
-  %or.cond.i = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond.i, label %56, label %is_rosmsg.exit.thread.i
+50:                                               ; preds = %47
+  %51 = add i32 %.05259.i, 16
+  %52 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %51)
+  %53 = add i32 %48, -16
+  %54 = icmp ule i32 %52, %53
+  %55 = add nuw i32 %52, 4
+  %56 = icmp uge i32 %45, %55
+  %or.cond.i = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond.i, label %57, label %is_rosmsg.exit.thread.i
 
-56:                                               ; preds = %49
-  %57 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
+57:                                               ; preds = %50
+  %58 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
   br label %70
 
 is_rosmsg.exit.thread.i:                          ; preds = %49, %46, %is_rosclock.exit.thread.i
@@ -347,7 +347,7 @@ is_rosmsg.exit.thread.i:                          ; preds = %49, %46, %is_rosclo
   %65 = icmp ugt i32 %62, %64
   br i1 %65, label %66, label %68
 
-66:                                               ; preds = %61
+66:; preds = %61
   %67 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
   br label %70
 
@@ -355,14 +355,14 @@ is_rosmsg.exit.thread.i:                          ; preds = %49, %46, %is_rosclo
   %69 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
   br label %70
 
-70:                                               ; preds = %68, %66, %59, %56, %23
+70:; preds = %68, %66, %59, %56, %23
   %.pn.i = phi i32 [ %69, %68 ], [ 12, %23 ], [ %57, %56 ], [ %60, %59 ], [ %67, %66 ]
   %.1.i = add i32 %.pn.i, %.05259.i
-  %71 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %73 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %72 = icmp ult i32 %.1.i, %71
-  br i1 %72, label %.lr.ph.i, label %dissect_ros_common.exit, !llvm.loop !8
+  br i1 %72, label %.lr.ph.i, label %75, !llvm.loop !8
 
-dissect_ros_common.exit:                          ; preds = %70, %4, %.critedge.i
+75:                                               ; preds = %70, %4, %.critedge.i
   %73 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %73
 }

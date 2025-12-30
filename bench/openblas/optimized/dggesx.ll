@@ -94,12 +94,12 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not536 = icmp eq i32 %62, 0
   %not..not536 = xor i1 %.not536, true
   %. = zext i1 %not..not536 to i32
-  %not..not536706 = xor i1 %.not536, true
+  %not..not536705 = xor i1 %.not536, true
   br label %63
 
 63:                                               ; preds = %61, %26
   %.sink = phi i32 [ %., %61 ], [ 0, %26 ]
-  %.not544 = phi i1 [ %not..not536706, %61 ], [ false, %26 ]
+  %.not544 = phi i1 [ %not..not536705, %61 ], [ false, %26 ]
   %.not548 = phi i1 [ %.not536, %61 ], [ true, %26 ]
   %64 = phi i1 [ %.not536, %61 ], [ false, %26 ]
   store i32 %.sink, ptr %34, align 4, !tbaa !3
@@ -112,12 +112,12 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not538 = icmp eq i32 %67, 0
   %not..not538 = xor i1 %.not538, true
   %.702 = zext i1 %not..not538 to i32
-  %not..not538707 = xor i1 %.not538, true
+  %not..not538706 = xor i1 %.not538, true
   br label %68
 
 68:                                               ; preds = %66, %63
   %.sink670 = phi i32 [ %.702, %66 ], [ 0, %63 ]
-  %.not545 = phi i1 [ %not..not538707, %66 ], [ false, %63 ]
+  %.not545 = phi i1 [ %not..not538706, %66 ], [ false, %63 ]
   %69 = phi i1 [ %.not538, %66 ], [ false, %63 ]
   store i32 %.sink670, ptr %35, align 4, !tbaa !3
   %70 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #5

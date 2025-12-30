@@ -543,7 +543,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %41, label %8
+  br i1 %or.cond, label %39, label %8
 
 8:                                                ; preds = %3
   %.not = icmp eq i64 %2, 0
@@ -563,34 +563,34 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
 
 .critedge:                                        ; preds = %8, %9, %14
   %16 = tail call fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, ptr noundef null, ptr noundef null)
-  br label %41
+  br label %39
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not118 = icmp eq i64 %2, 1
-  br i1 %.not118, label %.thread, label %.lr.ph
+  %.not119 = icmp eq i64 %2, 1
+  br i1 %.not119, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %40
+  br label %38
 
 .lr.ph:                                           ; preds = %17
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %35
-  %.140115 = phi i32 [ 0, %.lr.ph ], [ %.3, %35 ]
-  %.142114 = phi i32 [ 0, %.lr.ph ], [ %.344, %35 ]
-  %.147113 = phi i32 [ 0, %.lr.ph ], [ %.349, %35 ]
-  %.051112 = phi i64 [ %2, %.lr.ph ], [ %.152, %35 ]
-  %.053111 = phi ptr [ %1, %.lr.ph ], [ %.154, %35 ]
+  %.140116 = phi i32 [ 0, %.lr.ph ], [ %.3, %35 ]
+  %.142115 = phi i32 [ 0, %.lr.ph ], [ %.344, %35 ]
+  %.147114 = phi i32 [ 0, %.lr.ph ], [ %.349, %35 ]
+  %.051113 = phi i64 [ %2, %.lr.ph ], [ %.152, %35 ]
+  %.053112 = phi ptr [ %1, %.lr.ph ], [ %.154, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @mbedtls_pem_init(ptr noundef nonnull %4) #19
-  %20 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %.053111, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #19
+  %20 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %.053112, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #19
   switch i32 %20, label %27 [
     i32 0, label %21
-    i32 -5248, label %38
-    i32 -4224, label %37
+    i32 -5248, label %36
+    i32 -4224, label %35
   ]
 
 21:                                               ; preds = %19
@@ -602,63 +602,63 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   call void @mbedtls_pem_free(ptr noundef nonnull %4) #19
   switch i32 %26, label %32 [
     i32 0, label %35
-    i32 -10368, label %38
+    i32 -10368, label %36
   ]
 
-27:                                               ; preds = %19
+26:                                               ; preds = %19
   call void @mbedtls_pem_free(ptr noundef nonnull %4) #19
-  %28 = load i64, ptr %5, align 8, !tbaa !25
+  %27 = load i64, ptr %5, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %.053111, i64 %28
-  %30 = icmp eq i32 %.142114, 0
+  %30 = icmp eq i32 %.142115, 0
   %spec.select70 = select i1 %30, i32 %20, i32 %.142114
   %31 = add nsw i32 %.140115, 1
   br label %35, !llvm.loop !47
 
-32:                                               ; preds = %21
-  %33 = icmp eq i32 %.142114, 0
+32:; preds = %21
+  %33 = icmp eq i32 %.142115, 0
   %spec.select71 = select i1 %33, i32 %26, i32 %.142114
   %34 = add nsw i32 %.140115, 1
   br label %35, !llvm.loop !47
 
-35:                                               ; preds = %21, %32, %27
-  %.154 = phi ptr [ %29, %27 ], [ %23, %32 ], [ %23, %21 ]
-  %.pn = phi i64 [ %28, %27 ], [ %22, %32 ], [ %22, %21 ]
-  %.349 = phi i32 [ %.147113, %27 ], [ %.147113, %32 ], [ 1, %21 ]
+35:; preds = %21, %32, %27
+  %.349 = phi ptr [ %29, %27 ], [ %23, %32 ], [ %23, %21 ]
+  %.344 = phi i64 [ %27, %27 ], [ %22, %32 ], [ %22, %21 ]
+  %.3 = phi i32 [ %.147113, %27 ], [ %.147113, %32 ], [ 1, %21 ]
   %.344 = phi i32 [ %spec.select70, %27 ], [ %spec.select71, %32 ], [ %.142114, %21 ]
   %.3 = phi i32 [ %31, %27 ], [ %34, %32 ], [ %.140115, %21 ]
   %.152 = sub i64 %.051112, %.pn
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %36 = icmp ugt i64 %.152, 1
-  br i1 %36, label %19, label %.loopexit
+  %34 = icmp ugt i64 %.152, 1
+  br i1 %34, label %19, label %.loopexit
 
-37:                                               ; preds = %19
+35:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-38:                                               ; preds = %19, %21
+36:                                               ; preds = %19, %21
   %.358.ph = phi i32 [ %26, %21 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %41
+  br label %39
 
-.loopexit:                                        ; preds = %35, %37
-  %.147110 = phi i32 [ %.147113, %37 ], [ %.349, %35 ]
-  %.142107 = phi i32 [ %.142114, %37 ], [ %.344, %35 ]
-  %.140104 = phi i32 [ %.140115, %37 ], [ %.3, %35 ]
+.loopexit:                                        ; preds = %35, %35
+  %.147111 = phi i32 [ %.147114, %37 ], [ %.349, %35 ]
+  %.142108 = phi i32 [ %.142115, %37 ], [ %.344, %35 ]
+  %.140105 = phi i32 [ %.140116, %37 ], [ %.3, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not68 = icmp eq i32 %.147110, 0
-  br i1 %.not68, label %39, label %41
+  %.not68 = icmp eq i32 %.147111, 0
+  br i1 %.not68, label %37, label %39
 
-39:                                               ; preds = %.loopexit
-  %.142107.fr = freeze i32 %.142107
-  %.not69 = icmp eq i32 %.142107.fr, 0
-  br i1 %.not69, label %40, label %41
+37:                                               ; preds = %.loopexit
+  %.142108.fr = freeze i32 %.142108
+  %.not69 = icmp eq i32 %.142108.fr, 0
+  br i1 %.not69, label %38, label %39
 
-40:                                               ; preds = %.thread, %39
-  br label %41
+38:                                               ; preds = %.thread, %37
+  br label %39
 
-41:                                               ; preds = %40, %39, %38, %.loopexit, %3, %.critedge
-  %.055 = phi i32 [ %.358.ph, %38 ], [ %16, %.critedge ], [ -10240, %3 ], [ %.140104, %.loopexit ], [ -10112, %40 ], [ %.142107.fr, %39 ]
+39:                                               ; preds = %38, %37, %36, %.loopexit, %3, %.critedge
+  %.055 = phi i32 [ %.358.ph, %38 ], [ %16, %.critedge ], [ -10240, %3 ], [ %.140105, %.loopexit ], [ -10112, %40 ], [ %.142108.fr, %39 ]
   ret i32 %.055
 }
 
@@ -1512,7 +1512,7 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr nou
   br label %16
 
 16:                                               ; preds = %12, %7, %2
-  %.0 = phi i32 [ -10240, %7 ], [ 0, %2 ], [ %., %12 ]
+  %.0 = phi i32 [ -10238, %7 ], [ 0, %2 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -3269,7 +3269,7 @@ define internal fastcc range(i32 -2147483648, 2147474176) i32 @x509_get_basic_co
   br label %36
 
 36:                                               ; preds = %31, %29, %22, %9, %34, %27, %17, %7
-  %.028 = phi i32 [ %8, %7 ], [ 0, %34 ], [ %18, %17 ], [ 0, %9 ], [ %28, %27 ], [ 0, %22 ], [ -9574, %29 ], [ -9572, %31 ]
+  %.028 = phi i32 [ %8, %7 ], [ 0, %34 ], [ %18, %17 ], [ 0, %9 ], [ %27, %27 ], [ 0, %22 ], [ -9574, %29 ], [ -9572, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.028
 }
@@ -3669,7 +3669,7 @@ x509_memcasecmp.exit:                             ; preds = %18, %15, %3
   %exitcond.not.i.i = icmp eq i64 %57, %42
   br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !119
 
-x509_check_wildcard.exit:                         ; preds = %21, %36, %50, %53, %56, %25, %29, %38, %x509_memcasecmp.exit, %41, %7
+x509_check_wildcard.exit:                         ; preds = %21, %36, %50, %53, %56, %25, %29, %38, %x509_memcasecmp.exit, %39, %7
   %.0 = phi i32 [ -1, %36 ], [ 0, %56 ], [ 0, %7 ], [ -1, %41 ], [ -1, %x509_memcasecmp.exit ], [ -1, %38 ], [ -1, %29 ], [ -1, %25 ], [ -1, %50 ], [ -1, %53 ], [ 0, %21 ]
   ret i32 %.0
 }

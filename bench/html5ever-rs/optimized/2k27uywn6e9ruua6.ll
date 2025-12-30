@@ -716,8 +716,8 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %4 = alloca { ptr, ptr }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !91, !noundef !15
-  %.not132 = icmp eq i64 %6, 0
-  br i1 %.not132, label %.thread109, label %7
+  %.not129 = icmp eq i64 %6, 0
+  br i1 %.not129, label %.thread109, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -925,7 +925,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
   unreachable
 
-.thread118:                                       ; preds = %158, %160, %161
+.thread112:                                       ; preds = %158, %160, %161
   %.pn18 = phi { ptr, i32 } [ %159, %160 ], [ %162, %161 ], [ %159, %158 ]
   resume { ptr, i32 } %.pn18
 
@@ -1033,20 +1033,20 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %147 = phi i32 [ %146, %145 ], [ %129, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i32" ]
   %148 = phi i64 [ %..i.i, %145 ], [ %.pr, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i32" ]
   %149 = icmp eq i64 %148, 15
-  br i1 %149, label %.thread, label %150
+  br i1 %149, label %.thread, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40"
 
-150:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit"
-  %151 = icmp ugt i64 %148, 8
+"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit"
+  %150 = icmp ugt i64 %148, 8
   %152 = icmp eq i32 %147, 0
-  %or.cond = select i1 %151, i1 %152, i1 false
-  br i1 %or.cond, label %.thread, label %.thread109
+  %spec.select = select i1 %150, i1 %152, i1 false
+  br i1 %spec.select, label %.thread, label %.thread109
 
 .thread109:                                       ; preds = %97, %.thread, %3, %150, %99
   %.sroa.1061.0 = phi i32 [ %.sroa.572.12.extract.trunc, %150 ], [ undef, %3 ], [ undef, %97 ], [ undef, %99 ], [ %.sroa.49.sroa.12.0105, %.thread ]
-  %.sroa.10.0 = phi i32 [ %.sroa.572.8.extract.trunc, %150 ], [ undef, %3 ], [ undef, %97 ], [ undef, %99 ], [ %.sroa.49.sroa.8.0104, %.thread ]
-  %.sroa.9.0 = phi i64 [ %.sroa.071.0, %150 ], [ undef, %3 ], [ undef, %97 ], [ undef, %99 ], [ %.sroa.49.sroa.4.0103, %.thread ]
-  %.sroa.7.0 = phi i32 [ undef, %150 ], [ undef, %3 ], [ %49, %97 ], [ %49, %99 ], [ %.sroa.49.sroa.0.0102, %.thread ]
-  %.sroa.0.0 = phi i32 [ 1, %150 ], [ 2, %3 ], [ 0, %97 ], [ 0, %99 ], [ %.sroa.06.0106, %.thread ]
+  %.sroa.1061.0 = phi i32 [ %.sroa.572.8.extract.trunc, %150 ], [ undef, %3 ], [ undef, %97 ], [ undef, %99 ], [ %.sroa.49.sroa.8.0104, %.thread ]
+  %.sroa.10.0 = phi i64 [ %.sroa.071.0, %150 ], [ undef, %3 ], [ undef, %97 ], [ undef, %99 ], [ %.sroa.49.sroa.4.0103, %.thread ]
+  %.sroa.9.0 = phi i32 [ undef, %150 ], [ undef, %3 ], [ %49, %97 ], [ %49, %99 ], [ %.sroa.49.sroa.0.0102, %.thread ]
+  %.sroa.7.0 = phi i32 [ 1, %150 ], [ 2, %3 ], [ 0, %97 ], [ 0, %99 ], [ %.sroa.06.0106, %.thread ]
   store i32 %.sroa.0.0, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
@@ -1083,7 +1083,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 158:                                              ; preds = %.thread
   %159 = landingpad { ptr, i32 }
           cleanup
-  br i1 %153, label %.thread118, label %160
+  br i1 %153, label %.thread112, label %160
 
 160:                                              ; preds = %158
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.49.sroa.4.0103, i32 %.sroa.49.sroa.12.0105)

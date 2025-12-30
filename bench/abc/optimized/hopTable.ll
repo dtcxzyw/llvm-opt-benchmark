@@ -149,19 +149,19 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %21 = add nsw i32 %.val37.i, %.val36.i
   %22 = shl nsw i32 %21, 1
   %23 = add i32 %22, -1
-  br label %.critedge.i.i
+  br label %.loopexit.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %16
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.backedge, %16
   %.012.i.i = phi i32 [ %23, %16 ], [ %24, %.critedge.i.i.backedge ]
   %24 = add i32 %.012.i.i, 1
   %25 = and i32 %.012.i.i, 1
   %.not.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.not.i.i, label %.preheader.i.i, label %.critedge.i.i.backedge
+  br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
 
-.critedge.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.critedge.i.i
-  br label %.critedge.i.i
+.loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
+  br label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %.critedge.i.i
+.preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %24, 9
   br i1 %.not15.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i
 
@@ -175,7 +175,7 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %.01116.i.i = phi i32 [ %27, %26 ], [ 3, %.preheader.i.i ]
   %29 = urem i32 %24, %.01116.i.i
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.critedge.i.i.backedge, label %26
+  br i1 %30, label %.loopexit.i.i.backedge, label %26
 
 Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   store i32 %24, ptr %9, align 8, !tbaa !17

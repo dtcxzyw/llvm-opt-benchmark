@@ -1012,8 +1012,8 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br i1 %.not.i, label %.split.us.i.preheader, label %5
 
 .split.us.i.preheader:                            ; preds = %0
-  %smax39 = call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count40 = zext nneg i32 %smax39 to i64
+  %smax21 = call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %wide.trip.count23 = zext nneg i32 %smax21 to i64
   br label %.split.us.i
 
 5:                                                ; preds = %0
@@ -1031,7 +1031,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br label %.split.i
 
 .split.us.i:                                      ; preds = %.split.us.i.preheader, %select.unfold.us.i
-  %indvars.iv36 = phi i64 [ 0, %.split.us.i.preheader ], [ %indvars.iv.next37, %select.unfold.us.i ]
+  %indvars.iv19 = phi i64 [ 0, %.split.us.i.preheader ], [ %indvars.iv.next20, %select.unfold.us.i ]
   %.035.us.i = phi i32 [ 0, %.split.us.i.preheader ], [ %spec.select.us.i, %select.unfold.us.i ]
   %.031.us.i = phi i32 [ 1024, %.split.us.i.preheader ], [ %.233.us.i, %select.unfold.us.i ]
   %.030.us.i = phi ptr [ %3, %.split.us.i.preheader ], [ %.2.us.i, %select.unfold.us.i ]
@@ -1048,7 +1048,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = sext i32 %.031.us.i to i64
-  %.not45.us.i = icmp slt i64 %indvars.iv36, %16
+  %.not45.us.i = icmp slt i64 %indvars.iv19, %16
   br i1 %.not45.us.i, label %select.unfold.us.i, label %17
 
 17:                                               ; preds = %15
@@ -1059,7 +1059,7 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   br label %select.unfold.us.i
 
 22:                                               ; preds = %12
-  %23 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv19 to i32
   %24 = tail call ptr @__errno_location() #25
   %25 = load i32, ptr %24, align 4
   %.off.us.i = add i32 %25, -23
@@ -1073,12 +1073,12 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
 select.unfold.us.i:                               ; preds = %17, %15
   %.233.us.i = phi i32 [ %18, %17 ], [ %.031.us.i, %15 ]
   %.2.us.i = phi ptr [ %21, %17 ], [ %.030.us.i, %15 ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %28 = getelementptr inbounds nuw i32, ptr %.2.us.i, i64 %indvars.iv36
+  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
+  %28 = getelementptr inbounds nuw i32, ptr %.2.us.i, i64 %indvars.iv19
   store i32 %13, ptr %28, align 4
   %spec.select.us.i = call i32 @llvm.smax.i32(i32 %.035.us.i, i32 %13)
-  %exitcond41.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count40
-  br i1 %exitcond41.not, label %.lr.ph.preheader.i, label %.split.us.i
+  %exitcond24.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count23
+  br i1 %exitcond24.not, label %.lr.ph.preheader.i, label %.split.us.i
 
 .split.i:                                         ; preds = %select.unfold.i, %.split.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold.i ], [ 0, %.split.preheader.i ]
@@ -1121,7 +1121,7 @@ select.unfold.i:                                  ; preds = %39, %37
   store i32 %29, ptr %44, align 4
   %spec.select.i = call i32 @llvm.smax.i32(i32 %.035.i, i32 %29)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.i..lr.ph.preheader.i_crit_edge, label %.split.i
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %.split.i
 
 .preheader.sink.split.i:                          ; preds = %35, %26
   %.038.lcssa.sink.i = phi i32 [ %23, %26 ], [ %32, %35 ]
@@ -1132,7 +1132,7 @@ select.unfold.i:                                  ; preds = %39, %37
   br label %.preheader.i
 
 .preheader.i.loopexit:                            ; preds = %.split.us.i
-  %46 = trunc nuw nsw i64 %indvars.iv36 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv19 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.loopexit, %.preheader.sink.split.i, %35, %31, %26, %22
@@ -1140,13 +1140,13 @@ select.unfold.i:                                  ; preds = %39, %37
   %.us-phi51.i = phi i32 [ %.035.i, %31 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %35 ], [ %.035.us.i, %.preheader.i.loopexit ]
   %.us-phi52.i = phi ptr [ %.030.i, %31 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %35 ], [ %.030.us.i, %.preheader.i.loopexit ]
   %47 = icmp sgt i32 %.us-phi.i, 0
-  br i1 %47, label %.preheader.i..lr.ph.preheader.i_crit_edge, label %count_usable_fds.exit
+  br i1 %47, label %.lr.ph.preheader.i, label %count_usable_fds.exit
 
-.preheader.i..lr.ph.preheader.i_crit_edge:        ; preds = %select.unfold.i, %.preheader.i
-  %.us-phi52.i48 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.2.i, %select.unfold.i ]
-  %.us-phi51.i47 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %spec.select.i, %select.unfold.i ]
-  %.us-phi.i46 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax, %select.unfold.i ]
-  %.pre = zext nneg i32 %.us-phi.i46 to i64
+.lr.ph.preheader.i:                               ; preds = %select.unfold.i, %.preheader.i
+  %.us-phi52.i34 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.2.i, %select.unfold.i ]
+  %.us-phi51.i32 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %spec.select.i, %select.unfold.i ]
+  %.us-phi.i30 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax, %select.unfold.i ]
+  %wide.trip.count.i = zext nneg i32 %.us-phi.i30 to i64
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %select.unfold.us.i, %.preheader.i..lr.ph.preheader.i_crit_edge
@@ -1166,16 +1166,16 @@ select.unfold.i:                                  ; preds = %39, %37
   br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !10
 
 count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.preheader.i
-  %.us-phi52.i11 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i12, %.lr.ph.i ]
-  %.us-phi51.i9 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %.us-phi51.i10, %.lr.ph.i ]
-  %.us-phi.i7 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i8, %.lr.ph.i ]
-  call void @pfree(ptr noundef %.us-phi52.i11) #24
-  %reass.sub.i = sub i32 %.us-phi51.i9, %.us-phi.i7
+  %.us-phi52.i33 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i12, %.lr.ph.i ]
+  %.us-phi51.i31 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %.us-phi51.i10, %.lr.ph.i ]
+  %.us-phi.i29 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i8, %.lr.ph.i ]
+  call void @pfree(ptr noundef %.us-phi52.i33) #24
+  %reass.sub.i = sub i32 %.us-phi51.i31, %.us-phi.i29
   %51 = add i32 %reass.sub.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %52 = load i32, ptr @max_files_per_process, align 4
   %53 = sub i32 %52, %51
-  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i7, i32 %53)
+  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i29, i32 %53)
   %55 = add i32 %54, -10
   store i32 %55, ptr @max_safe_fds, align 4
   %56 = icmp slt i32 %55, 48
@@ -1197,7 +1197,7 @@ count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.prehead
 
 66:                                               ; preds = %64
   %67 = load i32, ptr @max_safe_fds, align 4
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i7, i32 noundef %51) #24
+  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i29, i32 noundef %51) #24
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.set_max_safe_fds) #24
   br label %69
 

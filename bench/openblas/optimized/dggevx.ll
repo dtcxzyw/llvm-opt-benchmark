@@ -145,7 +145,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %93 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.4) #6
   %.not648 = icmp eq i32 %93, 0
   %brmerge = select i1 %.not648, i1 true, i1 %68
-  %brmerge900 = select i1 %brmerge, i1 true, i1 %74
+  %brmerge899 = select i1 %brmerge, i1 true, i1 %74
   %.mux = select i1 %68, i32 -2, i32 -3
   %.mux.mux = select i1 %.not648, i32 -1, i32 %.mux
   %.mux899 = select i1 %68, i32 -2, i32 -3
@@ -153,8 +153,8 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %brmerge900, label %.thread690.sink.split, label %95
 
 94:                                               ; preds = %90, %88, %80
-  %brmerge901 = select i1 %68, i1 true, i1 %74
-  %.mux902 = select i1 %68, i32 -2, i32 -3
+  %brmerge900 = select i1 %68, i1 true, i1 %74
+  %.mux901 = select i1 %68, i32 -2, i32 -3
   %.mux903 = select i1 %68, i32 -2, i32 -3
   br i1 %brmerge901, label %.thread690.sink.split, label %95
 

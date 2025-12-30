@@ -1882,19 +1882,19 @@ define noalias noundef ptr @Abc_TruthDecRead(ptr noundef %0, i32 noundef %1) loc
   store i32 4095, ptr %12, align 4, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 -1, ptr %13, align 4, !tbaa !76
-  br label %.critedge.i.i.i
+  br label %.loopexit.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.backedge, %5
+.loopexit.i.i.i:                                  ; preds = %.loopexit.i.i.i.backedge, %5
   %.012.i.i.i = phi i32 [ 9999, %5 ], [ %14, %.critedge.i.i.i.backedge ]
   %14 = add i32 %.012.i.i.i, 1
   %15 = and i32 %.012.i.i.i, 1
   %.not.not.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.not.i.i.i, label %.preheader.i.i.i, label %.critedge.i.i.i.backedge
+  br i1 %.not.not.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i.backedge
 
-.critedge.i.i.i.backedge:                         ; preds = %.lr.ph.i.i.i, %.critedge.i.i.i
-  br label %.critedge.i.i.i
+.loopexit.i.i.i.backedge:                         ; preds = %.lr.ph.i.i.i, %.loopexit.i.i.i
+  br label %.loopexit.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.critedge.i.i.i
+.preheader.i.i.i:                                 ; preds = %.loopexit.i.i.i
   %.not15.i.i.i = icmp ult i32 %14, 9
   br i1 %.not15.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i
 
@@ -1908,7 +1908,7 @@ define noalias noundef ptr @Abc_TruthDecRead(ptr noundef %0, i32 noundef %1) loc
   %.01116.i.i.i = phi i32 [ %17, %16 ], [ 3, %.preheader.i.i.i ]
   %19 = urem i32 %14, %.01116.i.i.i
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.critedge.i.i.i.backedge, label %16
+  br i1 %20, label %.loopexit.i.i.i.backedge, label %16
 
 Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %16
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
@@ -1971,19 +1971,19 @@ Vec_MemAllocForTTSimple.exit:                     ; preds = %Abc_PrimeCudd.exit.
 52:                                               ; preds = %44
   %53 = shl nsw i32 %.val.i, 1
   %54 = add i32 %53, -1
-  br label %.critedge.i.i.i18
+  br label %.loopexit.i.i.i18
 
-.critedge.i.i.i18:                                ; preds = %.critedge.i.i.i18.backedge, %52
+.loopexit.i.i.i18:                                ; preds = %.loopexit.i.i.i18.backedge, %52
   %.012.i.i.i16 = phi i32 [ %54, %52 ], [ %55, %.critedge.i.i.i18.backedge ]
   %55 = add i32 %.012.i.i.i16, 1
   %56 = and i32 %.012.i.i.i16, 1
   %.not.not.i.i.i17 = icmp eq i32 %56, 0
-  br i1 %.not.not.i.i.i17, label %.preheader.i.i.i19, label %.critedge.i.i.i18.backedge
+  br i1 %.not.not.i.i.i17, label %.preheader.i.i.i19, label %.loopexit.i.i.i18.backedge
 
-.critedge.i.i.i18.backedge:                       ; preds = %.lr.ph.i.i.i21, %.critedge.i.i.i18
-  br label %.critedge.i.i.i18
+.loopexit.i.i.i18.backedge:                       ; preds = %.lr.ph.i.i.i21, %.loopexit.i.i.i18
+  br label %.loopexit.i.i.i18
 
-.preheader.i.i.i19:                               ; preds = %.critedge.i.i.i18
+.preheader.i.i.i19:                               ; preds = %.loopexit.i.i.i18
   %.not15.i.i.i20 = icmp ult i32 %55, 9
   br i1 %.not15.i.i.i20, label %Abc_PrimeCudd.exit.i.i24, label %.lr.ph.i.i.i21
 
@@ -1997,7 +1997,7 @@ Vec_MemAllocForTTSimple.exit:                     ; preds = %Abc_PrimeCudd.exit.
   %.01116.i.i.i22 = phi i32 [ %58, %57 ], [ 3, %.preheader.i.i.i19 ]
   %60 = urem i32 %55, %.01116.i.i.i22
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.critedge.i.i.i18.backedge, label %57
+  br i1 %61, label %.loopexit.i.i.i18.backedge, label %57
 
 Abc_PrimeCudd.exit.i.i24:                         ; preds = %.preheader.i.i.i19, %57
   %62 = load i32, ptr %21, align 8, !tbaa !56

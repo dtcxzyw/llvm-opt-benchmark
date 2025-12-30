@@ -597,19 +597,19 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 107:                                              ; preds = %Vec_StrPush.exit
   %108 = shl nsw i32 %.val34.i, 1
   %109 = add i32 %108, -1
-  br label %.critedge.i.i
+  br label %.loopexit.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %107
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.backedge, %107
   %.012.i.i = phi i32 [ %109, %107 ], [ %110, %.critedge.i.i.backedge ]
   %110 = add i32 %.012.i.i, 1
   %111 = and i32 %.012.i.i, 1
   %.not.not.i.i = icmp eq i32 %111, 0
-  br i1 %.not.not.i.i, label %.preheader.i.i, label %.critedge.i.i.backedge
+  br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
 
-.critedge.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.critedge.i.i
-  br label %.critedge.i.i
+.loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
+  br label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %.critedge.i.i
+.preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %110, 9
   br i1 %.not15.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i
 
@@ -623,7 +623,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %.01116.i.i = phi i32 [ %113, %112 ], [ 3, %.preheader.i.i ]
   %115 = urem i32 %110, %.01116.i.i
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.critedge.i.i.backedge, label %112
+  br i1 %116, label %.loopexit.i.i.backedge, label %112
 
 Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %112
   %117 = load i32, ptr %104, align 8, !tbaa !27

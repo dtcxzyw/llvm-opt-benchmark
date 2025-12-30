@@ -19,19 +19,19 @@ define noalias noundef ptr @Nm_ManCreate(i32 noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %calloc19, i64 28
   store i32 3, ptr %3, align 4, !tbaa !11
   %4 = add i32 %0, -1
-  br label %.critedge.i
+  br label %.loopexit.i
 
-.critedge.i:                                      ; preds = %.critedge.i.backedge, %1
+.loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
   %.012.i = phi i32 [ %4, %1 ], [ %5, %.critedge.i.backedge ]
   %5 = add i32 %.012.i, 1
   %6 = and i32 %.012.i, 1
   %.not.not.i = icmp eq i32 %6, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.critedge.i.backedge
+  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
 
-.critedge.i.backedge:                             ; preds = %.lr.ph.i, %.critedge.i
-  br label %.critedge.i
+.loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
+  br label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.critedge.i
+.preheader.i:                                     ; preds = %.loopexit.i
   %.not15.i = icmp ult i32 %5, 9
   br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
@@ -45,7 +45,7 @@ define noalias noundef ptr @Nm_ManCreate(i32 noundef %0) local_unnamed_addr #0 {
   %.01116.i = phi i32 [ %8, %7 ], [ 3, %.preheader.i ]
   %10 = urem i32 %5, %.01116.i
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.critedge.i.backedge, label %7
+  br i1 %11, label %.loopexit.i.backedge, label %7
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %12 = getelementptr inbounds nuw i8, ptr %calloc19, i64 16

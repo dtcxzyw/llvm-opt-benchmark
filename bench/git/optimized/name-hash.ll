@@ -941,9 +941,9 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %7 = alloca %struct.dir_entry, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = icmp slt i32 %1, %2
-  br i1 %9, label %.lr.ph108, label %.thread
+  br i1 %9, label %.lr.ph109, label %.thread
 
-.lr.ph108:                                        ; preds = %6
+.lr.ph109:                                        ; preds = %6
   %10 = load i64, ptr %8, align 8, !tbaa !65
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.not.i91 = icmp eq ptr %3, null
@@ -958,7 +958,7 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %19 = ashr exact i64 %sext73, 32
   br label %20
 
-20:                                               ; preds = %.lr.ph108, %189
+20:                                               ; preds = %.lr.ph109, %189
   %.0106 = phi i32 [ %1, %.lr.ph108 ], [ %.2, %189 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !52
   %22 = sext i32 %.0106 to i64
@@ -1196,7 +1196,7 @@ handle_range_dir.exit:                            ; preds = %133, %strbuf_addch.
 strbuf_setlen.exit80:                             ; preds = %140, %142
   %.not71 = icmp eq i32 %135, 0
   %144 = load i64, ptr %4, align 8, !tbaa !74
-  br i1 %.not71, label %151, label %145
+  br i1 %.not71, label %152, label %145
 
 145:                                              ; preds = %strbuf_setlen.exit80
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %144, i64 1)
@@ -1216,17 +1216,17 @@ strbuf_setlen.exit80:                             ; preds = %140, %142
 150:                                              ; preds = %148
   br label %strbuf_setlen.exit.sink.split, !llvm.loop !76
 
-151:                                              ; preds = %strbuf_setlen.exit80
+152:                                              ; preds = %strbuf_setlen.exit80
   %.not.i.i = icmp eq i64 %144, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-strbuf_avail.exit.i:                              ; preds = %151
-  %152 = load i64, ptr %8, align 8, !tbaa !65
-  %.neg.i = add i64 %152, 1
+strbuf_avail.exit.i:                              ; preds = %152
+  %153 = load i64, ptr %8, align 8, !tbaa !65
+  %.neg.i = add i64 %153, 1
   %.not.i74 = icmp eq i64 %144, %.neg.i
   br i1 %.not.i74, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %151
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %152
   call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #14
   %.pre.i = load i64, ptr %8, align 8, !tbaa !65
   %.pre7.i = add i64 %.pre.i, 1
@@ -1234,60 +1234,60 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %153 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %152, %strbuf_avail.exit.i ]
-  %154 = load ptr, ptr %11, align 8, !tbaa !67
+  %154 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %153, %strbuf_avail.exit.i ]
+  %155 = load ptr, ptr %11, align 8, !tbaa !67
   store i64 %.pre-phi.i, ptr %8, align 8, !tbaa !65
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %153
-  store i8 47, ptr %155, align 1, !tbaa !68
-  %156 = load ptr, ptr %11, align 8, !tbaa !67
-  %157 = load i64, ptr %8, align 8, !tbaa !65
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
-  store i8 0, ptr %158, align 1, !tbaa !68
-  %159 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0106, i32 noundef %2, ptr noundef nonnull %.0.i93, ptr noundef %4, ptr noundef %5)
-  %160 = load i64, ptr %4, align 8, !tbaa !74
-  %spec.select.i75 = call i64 @llvm.usub.sat.i64(i64 %160, i64 1)
-  %161 = icmp ugt i64 %19, %spec.select.i75
-  br i1 %161, label %162, label %163
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %154
+  store i8 47, ptr %156, align 1, !tbaa !68
+  %157 = load ptr, ptr %11, align 8, !tbaa !67
+  %158 = load i64, ptr %8, align 8, !tbaa !65
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %158
+  store i8 0, ptr %159, align 1, !tbaa !68
+  %160 = call fastcc i32 @handle_range_1(ptr noundef nonnull %0, i32 noundef %.0106, i32 noundef %2, ptr noundef nonnull %.0.i93, ptr noundef %4, ptr noundef %5)
+  %161 = load i64, ptr %4, align 8, !tbaa !74
+  %spec.select.i75 = call i64 @llvm.usub.sat.i64(i64 %161, i64 1)
+  %162 = icmp ugt i64 %19, %spec.select.i75
+  br i1 %162, label %163, label %164
 
-162:                                              ; preds = %strbuf_addch.exit
+163:                                              ; preds = %strbuf_addch.exit
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.11, i32 noundef 167, ptr noundef nonnull @.str.12) #15
   unreachable
 
-163:                                              ; preds = %strbuf_addch.exit
+164:                                              ; preds = %strbuf_addch.exit
   store i64 %19, ptr %8, align 8, !tbaa !65
-  %164 = load ptr, ptr %11, align 8, !tbaa !67
-  %.not9.i76 = icmp eq ptr %164, @strbuf_slopbuf
-  br i1 %.not9.i76, label %strbuf_setlen.exit, label %165, !llvm.loop !76
+  %165 = load ptr, ptr %11, align 8, !tbaa !67
+  %.not9.i76 = icmp eq ptr %165, @strbuf_slopbuf
+  br i1 %.not9.i76, label %strbuf_setlen.exit, label %166, !llvm.loop !76
 
-165:                                              ; preds = %163
+166:                                              ; preds = %164
   br label %strbuf_setlen.exit.sink.split, !llvm.loop !76
 
-strbuf_setlen.exit.sink.split:                    ; preds = %150, %165
+strbuf_setlen.exit.sink.split:; preds = %150, %165
   %.sink132 = phi ptr [ %164, %165 ], [ %149, %150 ]
   %.pn.ph = phi i32 [ %159, %165 ], [ %135, %150 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sink132, i64 %19
-  store i8 0, ptr %166, align 1, !tbaa !68
+  %169 = getelementptr inbounds nuw i8, ptr %.sink132, i64 %19
+  store i8 0, ptr %169, align 1, !tbaa !68
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.sink.split, %163, %148
+183:                                              ; preds = %strbuf_setlen.exit.sink.split, %163, %148
   %.pn = phi i32 [ %159, %163 ], [ %135, %148 ], [ %.pn.ph, %strbuf_setlen.exit.sink.split ]
   %.3 = add nsw i32 %.pn, %.0106
   br label %189
 
-167:                                              ; preds = %30
+167: ; preds = %30
   %168 = getelementptr inbounds %struct.lazy_entry, ptr %5, i64 %22
   store ptr %3, ptr %168, align 8, !tbaa !44
   br i1 %.not.i91, label %181, label %169
 
-169:                                              ; preds = %167
+169: ; preds = %167
   %170 = load i32, ptr %12, align 8, !tbaa !55
   %171 = load i32, ptr %13, align 4, !tbaa !4
   %172 = zext i32 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %31, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %175 = load i32, ptr %174, align 8, !tbaa !4
-  %176 = sub i32 %175, %171
-  %177 = zext i32 %176 to i64
+  %190 = sub i32 %175, %171
+  %177 = zext i32 %190 to i64
   %178 = call i32 @memihash_cont(i32 noundef %170, ptr noundef nonnull %173, i64 noundef %177) #14
   %179 = load i32, ptr %12, align 8, !tbaa !55
   %180 = getelementptr inbounds nuw i8, ptr %168, i64 8

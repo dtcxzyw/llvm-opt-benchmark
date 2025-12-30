@@ -359,9 +359,9 @@ define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %38 = icmp eq i32 %2, 1
   %39 = icmp eq i64 %.143, 0
   %or.cond = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %or.cond, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %37, %44
+.preheader.preheader:                             ; preds = %37, %44
   %.390 = phi i64 [ %45, %44 ], [ %.1, %37 ]
   %.04189 = phi i64 [ %46, %44 ], [ -9223372036854775808, %37 ]
   %40 = and i64 %.04189, %.143
@@ -370,13 +370,13 @@ define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %43 = icmp eq i32 %2, %42
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %.preheader
+44:; preds = %.preheader
   %45 = add nsw i64 %.390, 1
   %46 = lshr i64 %.04189, 1
   %.not60 = icmp eq i64 %46, 0
   br i1 %.not60, label %47, label %.preheader, !llvm.loop !21
 
-47:                                               ; preds = %44
+47:; preds = %44
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.1) #18
   tail call void @abort() #19
   unreachable
@@ -1852,7 +1852,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %umax394 = tail call i64 @llvm.umax.i64(i64 %36, i64 2)
   br label %204
 
-204:                                              ; preds = %.lr.ph356, %._crit_edge319.split.us
+204:                                              ; preds = %.lr.ph356, %._crit_edge317.split.us
   %.7351 = phi i64 [ %.1227, %.lr.ph356 ], [ %245, %._crit_edge319.split.us ]
   %205 = load i64, ptr %39, align 8, !tbaa !11
   %.not248 = icmp ugt i64 %205, %.7351
@@ -1867,14 +1867,14 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 
 211:                                              ; preds = %204, %206
   %spec.select252 = phi i8 [ %210, %206 ], [ %203, %204 ]
-  br i1 %.not445, label %._crit_edge319.split.us, label %.lr.ph316
+  br i1 %.not445, label %._crit_edge317.split.us, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %211
   switch i64 %.0225256, label %default.unreachable [
     i64 0, label %.lr.ph316.split.us
     i64 1, label %.lr.ph316.split.us325
     i64 2, label %.lr.ph316.split.us334
-    i64 3, label %._crit_edge319.split.us
+    i64 3, label %._crit_edge317.split.us
   ]
 
 .lr.ph316.split.us:                               ; preds = %.lr.ph316, %.thread258.us
@@ -1883,7 +1883,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %212 = getelementptr inbounds nuw i64, ptr %39, i64 %.3210314.us
   %213 = load i64, ptr %212, align 8, !tbaa !11
   %.not249.us = icmp ugt i64 %213, %.7351
-  br i1 %.not249.us, label %214, label %._crit_edge319.split.us
+  br i1 %.not249.us, label %214, label %._crit_edge317.split.us
 
 214:                                              ; preds = %.lr.ph316.split.us
   %215 = getelementptr inbounds nuw ptr, ptr %38, i64 %.3210314.us
@@ -1892,12 +1892,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %218 = load i8, ptr %217, align 1, !tbaa !5
   %219 = and i8 %218, %.1212313.us
   %220 = icmp eq i8 %219, 0
-  br i1 %220, label %._crit_edge319.split.us, label %.thread258.us
+  br i1 %220, label %._crit_edge317.split.us, label %.thread258.us
 
 .thread258.us:                                    ; preds = %214
   %221 = add nuw i64 %.3210314.us, 1
   %exitcond399.not = icmp eq i64 %221, %umax394
-  br i1 %exitcond399.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us, !llvm.loop !92
+  br i1 %exitcond399.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us, !llvm.loop !92
 
 .lr.ph316.split.us325:                            ; preds = %.lr.ph316, %.thread258.us329
   %.3210314.us326 = phi i64 [ %233, %.thread258.us329 ], [ %.0225256, %.lr.ph316 ]
@@ -1918,12 +1918,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 230:                                              ; preds = %224, %.lr.ph316.split.us325
   %231 = phi i8 [ %229, %224 ], [ %.1212313.us327, %.lr.ph316.split.us325 ]
   %232 = icmp eq i8 %231, -1
-  br i1 %232, label %._crit_edge319.split.us, label %.thread258.us329
+  br i1 %232, label %._crit_edge317.split.us, label %.thread258.us329
 
 .thread258.us329:                                 ; preds = %230
   %233 = add nuw i64 %.3210314.us326, 1
   %exitcond397.not = icmp eq i64 %233, %umax394
-  br i1 %exitcond397.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us325, !llvm.loop !92
+  br i1 %exitcond397.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us325, !llvm.loop !92
 
 .lr.ph316.split.us334:                            ; preds = %.lr.ph316, %.thread258.us338
   %.3210314.us335 = phi i64 [ %243, %.thread258.us338 ], [ 1, %.lr.ph316 ]
@@ -1945,12 +1945,12 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %242 = phi i8 [ %241, %236 ], [ %.1212313.us336, %.lr.ph316.split.us334 ]
   %243 = add nuw i64 %.3210314.us335, 1
   %exitcond395.not = icmp eq i64 %243, %umax394
-  br i1 %exitcond395.not, label %._crit_edge319.split.us, label %.lr.ph316.split.us334, !llvm.loop !92
+  br i1 %exitcond395.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us334, !llvm.loop !92
 
 default.unreachable:                              ; preds = %.lr.ph316
   unreachable
 
-._crit_edge319.split.us:                          ; preds = %.thread258.us338, %.thread258.us329, %230, %.lr.ph316.split.us, %.thread258.us, %214, %.lr.ph316, %211
+._crit_edge317.split.us:                          ; preds = %.thread258.us338, %.thread258.us329, %230, %.lr.ph316.split.us, %.thread258.us, %214, %.lr.ph316, %211
   %.2213 = phi i8 [ %spec.select252, %211 ], [ %spec.select252, %.lr.ph316 ], [ %219, %.thread258.us ], [ -1, %230 ], [ 0, %.lr.ph316.split.us ], [ 0, %214 ], [ %231, %.thread258.us329 ], [ %242, %.thread258.us338 ]
   %244 = getelementptr inbounds nuw i8, ptr %95, i64 %.7351
   store i8 %.2213, ptr %244, align 1, !tbaa !5
@@ -1958,7 +1958,7 @@ default.unreachable:                              ; preds = %.lr.ph316
   %exitcond400.not = icmp eq i64 %245, %.1223
   br i1 %exitcond400.not, label %.loopexit, label %204, !llvm.loop !93
 
-.loopexit:                                        ; preds = %._crit_edge319.split.us, %201, %._crit_edge
+.loopexit:                                        ; preds = %._crit_edge317.split.us, %201, %._crit_edge
   %.0222.lcssa421 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge319.split.us ]
   %.0217 = phi ptr [ null, %._crit_edge ], [ %95, %201 ], [ %95, %._crit_edge319.split.us ]
   br label %.lr.ph359

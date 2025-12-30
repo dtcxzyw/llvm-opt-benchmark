@@ -268,7 +268,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 133:                                              ; preds = %131
   %134 = icmp slt i32 %97, 0
   %brmerge1849 = select i1 %134, i1 true, i1 %59
-  %brmerge1851 = or i1 %brmerge1849, %68
+  %brmerge1850 = or i1 %brmerge1849, %68
   %.mux = select i1 %59, i32 -3, i32 -5
   %.mux.mux = select i1 %134, i32 -2, i32 %.mux
   %.mux1850 = select i1 %59, i32 -3, i32 -5

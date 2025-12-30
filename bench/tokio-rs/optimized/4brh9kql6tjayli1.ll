@@ -2398,14 +2398,14 @@ common.resume:                                    ; preds = %.invoke, %.thread22
   %138 = inttoptr i64 %.sroa.0.0.copyload to ptr
   br label %.thread127
 
-.thread145.split.loop.exit.split-lp.split.loop.exit: ; preds = %300
-  %lpad.split.loop.exit270 = landingpad { ptr, i32 }
+.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit: ; preds = %300
+  %lpad.split.loop.exit278 = landingpad { ptr, i32 }
           cleanup
   %139 = inttoptr i64 %.sroa.0.0.copyload to ptr
   br label %.thread127
 
-.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp: ; preds = %267, %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit103"
-  %lpad.split.loop.exit.split-lp271 = landingpad { ptr, i32 }
+.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp: ; preds = %267, %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit103"
+  %lpad.split.loop.exit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread127
 
@@ -2797,7 +2797,7 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
 
 267:                                              ; preds = %.noexc104
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
-          to label %268 unwind label %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp
+          to label %268 unwind label %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp
 
 268:                                              ; preds = %.noexc104, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !498
@@ -2911,7 +2911,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN4core3ptr43drop
   %302 = icmp ne i64 %.sroa.6.0.copyload, 0
   call void @llvm.assume(i1 %302)
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %301)
-          to label %.noexc115 unwind label %.thread145.split.loop.exit.split-lp.split.loop.exit
+          to label %.noexc115 unwind label %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit
 
 .noexc115:                                        ; preds = %300
   %303 = load i8, ptr %4, align 8, !range !8, !alias.scope !546, !noalias !539, !noundef !4
@@ -2926,7 +2926,7 @@ thread-pre-split.backedge:                        ; preds = %"_ZN4core3ptr43drop
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !539
   br label %thread-pre-split.backedge
 
-.thread127:                                       ; preds = %.thread145.split.loop.exit, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp, %.thread145.split.loop.exit.split-lp.split.loop.exit, %307, %136
+.thread127:                                       ; preds = %.thread145.split.loop.exit, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit.split-lp, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp.split.loop.exit, %307, %136
   %.sroa.2.0..sroa_idx.val = phi i64 [ %.sroa.2.0..sroa_idx.val193, %136 ], [ %.sroa.2.0..sroa_idx.val191, %307 ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit ], [ %.sroa.0.0.copyload, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %133, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp ]
   %306 = phi ptr [ %137, %136 ], [ %308, %307 ], [ %138, %.thread145.split.loop.exit ], [ %139, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %131, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp ]
   %.pn52136 = phi { ptr, i32 } [ %.pn52, %136 ], [ %.pn52140, %307 ], [ %lpad.split.loop.exit, %.thread145.split.loop.exit ], [ %lpad.split.loop.exit270, %.thread145.split.loop.exit.split-lp.split.loop.exit ], [ %lpad.split.loop.exit.split-lp271, %.thread145.split.loop.exit.split-lp.split.loop.exit.split-lp ]

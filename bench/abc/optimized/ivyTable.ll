@@ -185,19 +185,19 @@ define void @Ivy_TableInsert(ptr noundef captures(none) %0, ptr noundef readonly
   %33 = add nsw i32 %31, %32
   %34 = mul nsw i32 %33, 5
   %35 = add i32 %34, -1
-  br label %.critedge.i.i
+  br label %.loopexit.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %24
+.loopexit.i.i:                                    ; preds = %.loopexit.i.i.backedge, %24
   %.012.i.i = phi i32 [ %35, %24 ], [ %36, %.critedge.i.i.backedge ]
   %36 = add i32 %.012.i.i, 1
   %37 = and i32 %.012.i.i, 1
   %.not.not.i.i = icmp eq i32 %37, 0
-  br i1 %.not.not.i.i, label %.preheader.i.i, label %.critedge.i.i.backedge
+  br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
 
-.critedge.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.critedge.i.i
-  br label %.critedge.i.i
+.loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
+  br label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %.critedge.i.i
+.preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %36, 9
   br i1 %.not15.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i
 
@@ -211,7 +211,7 @@ define void @Ivy_TableInsert(ptr noundef captures(none) %0, ptr noundef readonly
   %.01116.i.i = phi i32 [ %39, %38 ], [ 3, %.preheader.i.i ]
   %41 = urem i32 %36, %.01116.i.i
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.critedge.i.i.backedge, label %38
+  br i1 %42, label %.loopexit.i.i.backedge, label %38
 
 Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
   store i32 %36, ptr %12, align 8, !tbaa !12

@@ -461,13 +461,13 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   store i8 0, ptr %123, align 1, !tbaa !16
   %124 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 47) #12
   %.not121 = icmp eq ptr %124, null
-  br i1 %.not121, label %.preheader444, label %125
+  br i1 %.not121, label %.preheader443, label %125
 
 125:                                              ; preds = %120
   store i8 0, ptr %124, align 1, !tbaa !16
-  br label %.preheader444
+  br label %.preheader443
 
-.preheader444:                                    ; preds = %125, %120
+.preheader443:                                    ; preds = %125, %120
   br label %127
 
 126:                                              ; preds = %127
@@ -475,7 +475,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.loopexit396, label %127, !llvm.loop !85
 
-127:                                              ; preds = %.preheader444, %126
+127:                                              ; preds = %.preheader443, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader444 ]
   %128 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !86
